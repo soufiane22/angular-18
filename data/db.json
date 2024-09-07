@@ -1,49 +1,39 @@
 {
   "todos": [
     {
-      "id": "640c",
-      "title": "hello walid",
-      "completed": false
-    },
-    {
-      "id": "2130",
-      "title": "todo11",
-      "completed": false
-    },
-    {
-      "id": "04f1",
-      "title": "kayak",
-      "completed": false
-    },
-    {
-      "id": "ff2f",
-      "title": "Hi toto ",
-      "completed": false
-    },
-    {
-      "id": "115e",
-      "title": "12223",
-      "completed": false
-    },
-    {
       "id": "88f2",
       "title": "Todo4011",
-      "completed": false
+      "completed": true
     },
     {
       "id": "89bb",
       "title": "spring boot",
-      "completed": false
-    },
-    {
-      "id": "1512",
-      "title": "good morning",
-      "completed": false
+      "completed": true
     },
     {
       "id": "76ba",
       "title": "soufiane",
       "completed": false
+    },
+    {
+      "id": "ccc4",
+      "title": "Todo 22",
+      "completed": true
+    },
+    {
+      "id": "ddac",
+      "title": "Creating new app",
+      "completed": false
+    },
+    {
+      "id": "0e76",
+      "title": "dddd",
+      "completed": true
+    },
+    {
+      "id": "9835",
+      "title": "sfdsfdsf",
+      "completed": true
     }
   ]
 }
