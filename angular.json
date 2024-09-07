@@ -32,7 +32,10 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootswatch/dist/lux/bootstrap.min.css",
+              "node_modules/font-awesome/scss/font-awesome.scss"
+              
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -103,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "97f9c014-7d69-4d26-a486-901fafa3c095"
   }
 }
