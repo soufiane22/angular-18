@@ -12,8 +12,8 @@
     },
     {
       "id": "76ba",
-      "title": "soufiane",
-      "completed": false
+      "title": "soufiane22",
+      "completed": true
     },
     {
       "id": "ccc4",
@@ -23,7 +23,7 @@
     {
       "id": "ddac",
       "title": "Creating new app",
-      "completed": false
+      "completed": true
     },
     {
       "id": "0e76",
@@ -33,6 +33,21 @@
     {
       "id": "9835",
       "title": "sfdsfdsf",
+      "completed": true
+    },
+    {
+      "id": "464e",
+      "title": "lluphpp",
+      "completed": false
+    },
+    {
+      "id": "b3e2",
+      "title": "yyyyy",
+      "completed": true
+    },
+    {
+      "id": "2eb8",
+      "title": "New Todo",
       "completed": true
     }
   ]

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject,signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Todo } from './todo.model';
 import { TodoService } from './todo.service';
@@ -14,13 +14,14 @@ import { errorMonitor } from 'node:events';
 })
 export class TodosComponent implements OnInit {
 
-  todo: Todo  = {
+  todo = signal<Todo>({
     title : "",
     completed : false
-  };
-  todos: Todo [] = [];
-  editable:boolean = false;
-  openForm : boolean = false;
+  });
+
+  todos = signal<Todo []>([]);
+  editable = signal<boolean>(false);
+  openForm = signal<boolean>(false);
   todoService = inject(TodoService);
 
   ngOnInit(): void {
@@ -28,11 +29,11 @@ export class TodosComponent implements OnInit {
   }
 
   persistTodo(){
-    this.todoService.persistTodo(this.todo).subscribe({
+    this.todoService.persistTodo(this.todo()).subscribe({
       next : (data) => {console.log("data => ",data);
-        this.todos = [data,...this.todos];
-        this.todo.title = "";
-        this.openForm = false;
+        this.todos.set([data,...this.todos()]) ;
+        this.todo().title = "";
+        this.openForm.set(false);
         this.sortTodos();
       },
       error : (error) => { console.log("error ", error)},
@@ -42,17 +43,18 @@ export class TodosComponent implements OnInit {
   }
 
   onEditTodo(todo:Todo){
-    this.openForm = true;
-    this.todo = {id:todo.id , title: todo.title , completed:todo.completed } ;
-    this.editable=true;
+    this.openForm.set(true);
+    this.todo.set({id:todo.id , title: todo.title , completed:todo.completed })  ;
+    this.editable.set(true);
 
   }
   editTodo(){
-    this.todoService.updateTodo(this.todo).subscribe({
-      next : (data) => { this.todos = this.todos.map(item => {
+    this.todoService.updateTodo(this.todo()).subscribe({
+      next : (data) => { 
+        this.todos.set(this.todos().map(item => {
         if(data.id == item.id ) return data ; return item
-      }) ;
-      this.openForm = false;
+      })) ;
+      this.openForm.set(false);
     },
       error : (error) => {},
       complete : () => { this.initTodo()}
@@ -62,7 +64,7 @@ export class TodosComponent implements OnInit {
   getAllTodos(){
     this.todoService.getTodos().subscribe({
       next : (data) => {
-        this.todos = data ;
+        this.todos.set(data)  ;
         this.sortTodos();
       },
       error : (error) => { console.log("error ",error);
@@ -72,20 +74,20 @@ export class TodosComponent implements OnInit {
   }
 
   initTodo(){
-    this.todo = {
+    this.todo.set({
       title: "",
       completed: false
-    };
-    this.editable = false;
+    });
+    this.editable.set(false);
   }
 
   completeTodo(todo:Todo){
     todo.completed = !todo.completed;
     this.todoService.updateTodo(todo).subscribe({
       next : (data) => { 
-        this.todos = this.todos.map(item => {
+        this.todos.set(this.todos().map(item => {
         if(data.id == item.id ) return data ; return item
-      });
+      }));
       this.sortTodos();
      },
       error : (error) => {},
@@ -96,12 +98,12 @@ export class TodosComponent implements OnInit {
   }
 
   cancel(){
-    this.openForm = !this.openForm;
+    this.openForm.set(!this.openForm()) ;
     this.initTodo();
   }
 
   sortTodos(){
-    this.todos = this.todos.sort((a,b) => a.completed ? 1 : -1 );
+    this.todos.set(this.todos().sort((a,b) => a.completed ? 1 : -1 )) ;
   }
 
   deleteTodo(todo:Todo){
