@@ -1,54 +1,9 @@
 {
   "todos": [
     {
-      "id": "88f2",
-      "title": "Todo4011",
-      "completed": true
-    },
-    {
-      "id": "89bb",
-      "title": "spring boot",
-      "completed": true
-    },
-    {
-      "id": "76ba",
-      "title": "soufiane22",
-      "completed": true
-    },
-    {
-      "id": "ccc4",
-      "title": "Todo 22",
-      "completed": true
-    },
-    {
-      "id": "ddac",
-      "title": "Creating new app",
-      "completed": true
-    },
-    {
-      "id": "0e76",
-      "title": "dddd",
-      "completed": true
-    },
-    {
-      "id": "9835",
-      "title": "sfdsfdsf",
-      "completed": true
-    },
-    {
-      "id": "464e",
-      "title": "lluphpp",
+      "id": "d1b5",
+      "title": "New todoq",
       "completed": false
-    },
-    {
-      "id": "b3e2",
-      "title": "yyyyy",
-      "completed": true
-    },
-    {
-      "id": "2eb8",
-      "title": "New Todo",
-      "completed": true
     }
   ]
 }
